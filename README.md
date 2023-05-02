@@ -28,3 +28,24 @@ In Bash shell, comparison operators are used to compare values or expressions an
 
 
 These comparison operators are usually used in conditional statements such as if-else statements and loops to execute certain actions based on the result of the comparison.
+
+# Condition Expression 
+The expression [ -x "$(command -v docker)" ] is a conditional statement that checks whether the docker command is available in the current shell's environment. Here's how it works:
+
+The $(command -v docker) command uses the command utility to locate the docker executable in the system's $PATH.
+
+The $() syntax is used to capture the output of the command -v docker command as a string.
+
+The -x option used in the conditional statement checks if the string that represents the path to the docker executable file is executable.
+
+If the docker command is found and is executable, the expression evaluates to true and the code block within the if statement is executed.
+
+In summary, the [ -x "$(command -v docker)" ] expression checks whether the docker command is available and can be executed, and executes a code block if it's not found.
+
+# [ ]
+
+In bash scripting, square brackets ([]) are used to enclose a conditional expression. The expression inside the square brackets is evaluated as true or false, and based on the result, the script can take different actions.
+
+In the specific case of [ -x "$(command -v docker)" ], the -x flag checks if the file is executable, and $(command -v docker) is a command substitution that returns the path to the docker executable. The expression as a whole is checking if the docker executable is installed and is executable by the current user.
+
+Note that square brackets are not the only way to enclose a conditional expression in bash. Double parentheses (()), and double square brackets [[ ]] are also used for this purpose. However, there are subtle differences in the behavior of each construct, and square brackets are often used as the default choice.
